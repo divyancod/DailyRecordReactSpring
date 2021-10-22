@@ -1,6 +1,7 @@
 import {LOGIN_USER, ERROR, LOGOUT_USER, UPDATE_DETAILS, LOAD_POSTS, REFRESH_POSTS} from "./action.types";
 import Axios from "axios";
 import {toast} from "react-toastify";
+import auth from '../../Authentication'
 
 export const authLogin = ({email, password}) => {
     return (dispatch) => {
@@ -12,6 +13,7 @@ export const authLogin = ({email, password}) => {
         })
             .then((response) => {
                 const {data} = response.data;
+                auth.setAuthenticated(true)
                 dispatch({
                     type: LOGIN_USER,
                     payload: data,

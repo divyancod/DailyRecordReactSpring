@@ -12,6 +12,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import store from "./components/reducers/store";
 import UpdateProfile from "./components/UpdateProfile";
+import PrivateRoute from "./PrivateRoute";
+import NotFound from "./components/NotFound";
 
 class App extends React.Component {
   render() {
@@ -21,10 +23,11 @@ class App extends React.Component {
           <ToastContainer />
           <Header />
           <Switch>
-            <Route exact path="/" component={Homepage} />
+            <PrivateRoute exact path="/" component={Homepage} />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile" component={UpdateProfile} />
+            <PrivateRoute exact path="/profile" component={UpdateProfile} />
+            <Route path="*" component={NotFound}/>
           </Switch>
           <Footer />
         </Router>

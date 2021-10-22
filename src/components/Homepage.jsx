@@ -6,17 +6,6 @@ import AddPost from "./AddPost";
 import PostContainer from "./PostContainer";
 
 class Homepage extends Component {
-    constructor(props) {
-        super(props);
-        this.handleLogout = this.handleLogout.bind(this);
-    }
-
-    handleLogout = (e) => {
-        e.preventDefault();
-        localStorage.clear();
-        this.props.history.push("/signin");
-    };
-
     render() {
         if (this.props.isLogged) {
             return (

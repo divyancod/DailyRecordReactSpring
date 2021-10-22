@@ -68,7 +68,7 @@ class Signin extends Component {
                         <Col lg={6} className="offset-lg-3 mt-5">
                             <Card>
                                 <Form onSubmit={this.handleSubmit}>
-                                    <CardHeader className="">SignUp Here</CardHeader>
+                                    <CardHeader className="">SignIn Here</CardHeader>
                                     <CardBody>
                                         <FormGroup row className="mb-2">
                                             <Label for="email" sm={3}>

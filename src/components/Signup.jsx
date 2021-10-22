@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {toast} from "react-toastify";
-import {authSignUp} from "./reducers/mainaction";
+import {authSignUp, isUserAlreadyLogin} from "./reducers/mainaction";
 import {
     Container,
     Row,
@@ -33,7 +33,9 @@ class Signup extends Component {
         this.passwordChange = this.passwordChange.bind(this);
         this.repasswordChange = this.repasswordChange.bind(this);
     }
-
+    componentDidMount() {
+        this.props.isUserAlreadyLogin();
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.state.email === "" || this.state.password === "") {
@@ -156,4 +158,4 @@ const mapStateToProps = state => {
         user: state
     }
 }
-export default connect(mapStateToProps, {authSignUp})(Signup);
+export default connect(mapStateToProps, {authSignUp,isUserAlreadyLogin})(Signup);
