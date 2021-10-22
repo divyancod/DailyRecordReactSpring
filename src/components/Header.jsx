@@ -9,7 +9,7 @@ class Header extends Component {
         return (
             <Navbar color="info" light expand="md">
                 <Link to="/" className="text-white ms-3">
-                    Simple Login Demo
+                    Daily Record App
                 </Link>
                 <Nav className="ms-auto">
                     {this.props.isLogged ?

@@ -17,6 +17,7 @@ import {toast} from "react-toastify";
 import {connect} from "react-redux";
 import {authLogin} from "./reducers/mainaction";
 import {Redirect} from "react-router-dom";
+import {isUserAlreadyLogin} from "./reducers/mainaction";
 
 class Signin extends Component {
     constructor(props) {
@@ -28,6 +29,9 @@ class Signin extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.emailChange = this.emailChange.bind(this);
         this.passwordChange = this.passwordChange.bind(this);
+    }
+    componentDidMount() {
+        this.props.isUserAlreadyLogin();
     }
 
     handleSubmit = (e) => {
@@ -117,4 +121,4 @@ const mapStateToProps = state=>{
         user:state
     }
 }
-export default connect(mapStateToProps,{authLogin})(Signin);
+export default connect(mapStateToProps,{authLogin,isUserAlreadyLogin})(Signin);

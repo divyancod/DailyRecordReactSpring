@@ -1,7 +1,9 @@
 import React, {Component} from "react";
-import {Button} from "reactstrap";
+import { Col, Container, Row} from "reactstrap";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import AddPost from "./AddPost";
+import PostContainer from "./PostContainer";
 
 class Homepage extends Component {
     constructor(props) {
@@ -18,10 +20,15 @@ class Homepage extends Component {
     render() {
         if (this.props.isLogged) {
             return (
-                <div>
-                    <h1>Hello world</h1>
-                    <Button onClick={this.handleLogout}>Logout</Button>
-                </div>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h3>Welcome {this.props.name}</h3>
+                            <AddPost/>
+                            <PostContainer/>
+                        </Col>
+                    </Row>
+                </Container>
             );
         } else {
             return <Redirect to="/signin"/>
@@ -31,7 +38,8 @@ class Homepage extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLogged: state.isLogged
+        isLogged: state.isLogged,
+        name:state.name
     }
 }
 export default connect(mapStateToProps)(Homepage)
