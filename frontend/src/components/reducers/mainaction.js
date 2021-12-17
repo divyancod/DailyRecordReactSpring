@@ -5,7 +5,7 @@ import auth from '../../Authentication'
 
 export const authLogin = ({email, password}) => {
     return (dispatch) => {
-        Axios.get("http://127.0.0.1:8080/login", {
+        Axios.get("https://think-share-backend.herokuapp.com/login", {
             params: {
                 email: email,
                 password: password,
@@ -41,7 +41,7 @@ export const logoutUser = () => {
 };
 export const authSignUp = ({name, email, password}) => {
     return (dispatch) => {
-        Axios.get("http://127.0.0.1:8080/signup", {
+        Axios.get("https://think-share-backend.herokuapp.com/signup", {
             params: {
                 name: name,
                 email: email,
@@ -69,7 +69,7 @@ export const authSignUp = ({name, email, password}) => {
 };
 export const updateUserDetails = ({name, phone, token}) => {
     return (dispatch) => {
-        fetch("http://localhost:8080/update-details", {
+        fetch("https://think-share-backend.herokuapp.com/update-details", {
             method: "POST",
             body: JSON.stringify({name: name, phone: phone}),
             headers: {
@@ -107,7 +107,7 @@ export const isUserAlreadyLogin = () => {
 }
 export const savePost = ({title, body, token}) => {
     return (dispatch) => {
-        fetch("http://localhost:8080/save-post", {
+        fetch("https://think-share-backend.herokuapp.com/save-post", {
             method: "POST",
             body: JSON.stringify({title: title, body: body}),
             headers: {
@@ -130,7 +130,7 @@ export const savePost = ({title, body, token}) => {
 }
 export const loadPost = ({token}) => {
     return (dispatch) => {
-        Axios.get("http://127.0.0.1:8080/get-all-posts", {
+        Axios.get("https://think-share-backend.herokuapp.com/get-all-posts", {
             headers: {
                 authorization:
                     "Bearer " + token,
